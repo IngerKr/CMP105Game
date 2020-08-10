@@ -1,0 +1,5 @@
+﻿  Game.cpp
+C:\GL\Game\Game.cpp(131,27): warning C4018: '<': signed/unsigned mismatch
+C:\GL\Game\Game.cpp(144,20): warning C4018: '<': signed/unsigned mismatch
+C:\GL\Game\Game.cpp(158,25): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  Game.vcxproj -> C:\GL\Game\Debug\Game.exe
