@@ -10,12 +10,12 @@ int main()
 	//deltaTime = clock.restart().asSeconds();
 
 	//Init srand
-	//std::srand(static_cast<unsigned>(time(NULL)));
+	std::srand(static_cast<unsigned>(time(NULL)));
 
 	//Init game engine
 	Game game;
 
-	while (game.running())
+	while (game.running() && !game.getEndGame())
 	{
 
 
@@ -29,6 +29,6 @@ int main()
 
 	}
 	
-	//end of application
+	//end of application/title screen
 	return 0;
 }
