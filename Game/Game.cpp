@@ -26,6 +26,24 @@ void Game::initWindow()
 	this->window->setFramerateLimit(60);
 }
 
+void Game::initFonts()
+{
+	if (!this->font.loadFromFile("Fonts/Gronzy-Regular.ttf"))
+	{
+		std::cout << "Failed to load font!\n";
+	}
+
+	/*this->font.loadFromFile("Fonts/Gronzy-Regular.ttf");*/
+}
+
+void Game::initText()
+{
+	this->gameText.setFont(this->font);
+	this->gameText.setCharacterSize(24);
+	this->gameText.setFillColor(sf::Color::White);
+	/*this->gameText.setPosition(200, 400);*/
+}
+
 void Game::initEnemies()
 {
 	this->enemy.setPosition(10.f, 10.f);
@@ -44,6 +62,8 @@ Game::Game()
 {
 	this->initVariables();
 	this->initWindow();
+	this->initFonts();
+	this->initText();
 	this->initEnemies();
 }
 
@@ -101,7 +121,7 @@ void Game::pollEvents()
 			break;
 		case sf::Event::KeyPressed:
 			if (this->event.key.code == sf::Keyboard::Escape)
-				this->window->close();
+				/*this->escScreen();*/
 			break;
 		case sf::Event::Resized:
 			this->window->setView(sf::View(sf::FloatRect(0.f, 0.f, (float)event.size.width, (float)event.size.height)));
@@ -120,6 +140,17 @@ void Game::updateMousePositions()
 
 	this->mousePosWindow = sf::Mouse::getPosition(*this->window);
 	this->mousePosView = this->window->mapPixelToCoords(this->mousePosWindow);
+}
+
+void Game::updateText()
+{
+	/*std::stringstream ss;*/
+
+	/*ss << "Points: " << this->points << "\n" << "Health: " << this->health << "\n";*/
+	/*ss << "Word";*/
+
+	/*this->gameText.setString(ss.str());*/
+	this->gameText.setString("Hello world");
 }
 
 void Game::updateEnemies()
@@ -202,15 +233,22 @@ void Game::update()
 	{
 		this->updateMousePositions();
 
+		this->updateText();
+
 		this->updateEnemies();
 	}
 
 	//endgame condition
-	if (this->health <= 0)
+	/*if (this->health <= 0)
 	{
-		this->endGame = true;
-	}
+		this->escScreen();
+	}*/
 
+}
+
+void Game::renderText()
+{
+	this->window->draw(this->gameText);
 }
 
 void Game::renderEnemies()
@@ -240,5 +278,28 @@ void Game::render()
 	//Draw game objects
 	this->renderEnemies();
 
+	this->renderText();
+
 	this->window->display();
 }
+
+//void Game::startScreen()
+//{
+//	this->window->clear();
+//
+//	//Show controls
+//
+//	//Show "PLAY" option
+//
+//	this->window->display();
+//}
+//
+//void Game::escScreen()
+//{
+//	this->window->clear();
+//
+//	//Show options
+//
+//	this->window->display();
+//}
+

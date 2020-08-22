@@ -1,6 +1,4 @@
 ﻿  Game.cpp
-C:\GL\Game\Game.cpp(139,27): warning C4018: '<': signed/unsigned mismatch
-  Main.cpp
-  Generating Code...
-C:\GL\Game\Game.cpp(154,20): warning C4018: '<': signed/unsigned mismatch
+C:\GL\Game\Game.cpp(170,27): warning C4018: '<': signed/unsigned mismatch
+C:\GL\Game\Game.cpp(185,20): warning C4018: '<': signed/unsigned mismatch
   Game.vcxproj -> C:\GL\Game\Debug\Game.exe

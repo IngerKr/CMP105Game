@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
+#include <sstream>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
@@ -24,6 +25,12 @@ private:
 	sf::Vector2i mousePosWindow;
 	sf::Vector2f mousePosView;
 
+	//Font
+	sf::Font font;
+	
+	//Text
+	sf::Text gameText;
+
 	//Game logic
 	bool endGame;
 	unsigned points; //always positive
@@ -41,6 +48,8 @@ private:
 	//Private functions
 	void initVariables();
 	void initWindow();
+	void initFonts();
+	void initText();
 	void initEnemies();
 public:
 	//Constructors and destructors
@@ -53,11 +62,18 @@ public:
 
 	//Functions
 	void spawnEnemy();
+	
 	void pollEvents();
 	void updateMousePositions();
+	void updateText();
 	void updateEnemies();
-	void renderEnemies();
 	void update();
+	
+	void renderText();
+	void renderEnemies();
 	void render();
+	
+	//void startScreen();
+	//void escScreen();
 };
 
